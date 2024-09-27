@@ -146,19 +146,6 @@ if [[ $aus = n && $language = ru ]]; then
 	clear
 	echo "$exitlol"
 fi
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+exit
 
 /bin/bash
