@@ -11,6 +11,8 @@ open_ru="Запуск Tlauncher-а"
 open_true_en="TLauncher is running"
 open_true_ru="TLauncher запущен"
 
+printf '\033[8;30;120t'
+
 #code
 clear
 cd ~/.tlauncher/
