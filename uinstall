@@ -54,6 +54,7 @@ aus=""
 clr=""
 
 #code
+clear
 cd ~/.tlauncher/
 source vars
 while [[ $language = en && $aus != y && $aus != n ]]; do
