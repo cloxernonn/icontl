@@ -58,6 +58,8 @@ pwdir="$(pwd)"
 aus=""
 clr=""
 
+printf '\033[8;30;120t'
+
 #code
 clear
 cd ~/.tlauncher/
