@@ -1,0 +1,158 @@
+#!/bin/bash
+#text&photo&data
+tlauncher_uinstall="╭━━╮╱╱╱╱╱╱╱╱╱╱╭╮╱╱╱╱╱╭┳┳╮╱╱╭━┳╮
+╰╮╭┫╭━╮╭┳┳━┳┳━┫╰┳━┳┳╮┃┃┣╋━┳┫━┫╰┳━╮╭╮╭╮
+╱┃┃╰┫╋╰┫┃┃┃┃┃━┫┃┃┻┫╭╯┃┃┃┃┃┃┣━┃╭┫╋╰┫╰┫╰╮
+╱╰┻━┻━━┻━┻┻━┻━┻┻┻━┻╯╱╰━┻┻┻━┻━┻━┻━━┻━┻━╯
+"
+tlauncher_icon_uc=" 
+                      ,╓▄▄,_
+                ,▄▄███████████▄▄,_
+         _,▄▄████████████▓▓█▓▓▓▓▓▓▓▓▄╖,_
+   _,▄▄███████████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓@╖__
+ƒ███████████████▓▓▓▓█▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒╫▓█Γ
+╫██████▓██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▓██████▌
+[███████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▓▓▓▓▒████████████▌
+╫████████████████▓▓▓▒▓▓▓▓▀▓▓▓▓▓█████████████████▌
+╫██████████████████████▓▓▒██████████████████████▌
+╫██████▓████████████████████████████████████████▌   ╭┳┳╮╱╱╭━┳╮╱╱╱╱╱╱╭━╮╱╱╱╱╱╱╱╱╱╱╭╮
+▐███▓███████████████████████████████████████▓███µ   ┃┃┣╋━┳┫━┫╰┳━╮╭╮╱┃╭╋━┳━━┳━┳╮╭━┫╰┳━╮
+▐███████████████████████████████████████████████∩   ┃┃┃┃┃┃┣━┃╭┫╋╰┫╰╮┃╰┫╋┃┃┃┃╋┃╰┫┻┫╭┫┻┫
+▐███▓███████████████████████████████████████▓███µ   ╰━┻┻┻━┻━┻━┻━━┻━╯╰━┻━┻┻┻┫╭┻━┻━┻━┻━╯
+▐███▓███████████████████████████████████████▓███µ   ╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╱╰╯
+▐███████████████████████████████████████████████∩
+▐█▓▓▓███████▓███████████████████████▓█▓████▓▓▓▓█∩
+╞███▓██▓██▓██▓▓███████████████████▓▓██▓██▓██████
+▐▓▓▓▓████▓█████████▓█████████▓█████████▓███▓▓▓▓▓
+╘█▓▓█▓▓▓▓▓██▓▓▓██▓████████████████▓▓▓▓█▓▓▓▓▓█▓▓█
+   ▀▀▓█▓▓████████▓▓███▓▓▓▓██▓▓██▓█████▓▓█▓▀▀
+        ▀▓▓▓▓▓▓▓▓▓███████████▓▓▓█▓▓▓█▀▀
+             ▀█▓▓█▓███▓▓▓▓█▓▓█▓▓▀▀
+                  ▀▀█▓▓▓█▓▓▓▓▀
+                       ▀▀
+"
+oops_en="Something went wrong...
+"
+oops_ru="Что то пошло не так...
+"
+aus_en="Are you sure you want to continue? [y/n]"
+aus_ru="Вы точно хотите продолжить? [y/n]"
+uinstallcon_en="Uinstall"
+uinstallcon_ru="Деинсталлировать"
+uinstall_en="[TL] Uninstalling TLauncher"
+uinstall_ru="[TL] Деинсталлирование TLauncher-а"
+uinstall_comp_en="[TL] The uninstall is complete"
+uinstall_comp_ru="[TL] Деинсталлирование завершено"
+uinstall_canc_en="[TL] The uninstall has been canceled"
+uinstall_canc_ru="[TL] Деинсталлирование отменено"
+skip_en="[TL] Missed"
+skip_ru="[TL] Пропущенно"
+name="$USER"
+desktop="$(xdg-user-dir DESKTOP)"
+pwdir="$(pwd)"
+aus=""
+clr=""
+
+#code
+cd ~/.tlauncher/
+source vars
+while [[ $language = en && $aus != y && $aus != n ]]; do
+	if [[ $aus = $clr ]]; then
+		aus=""
+		clear
+		echo "$confirm_install"
+		echo "$uinstallcon_en"
+		echo "$aus_en"
+		read aus
+	fi
+	if [[ $aus != $clr && $aus != y && $aus != n ]]; then
+		aus=""
+		clear
+		echo "$oops_en"
+		echo "$confirm_install"
+		echo "$uinstallcon_en"
+		echo "$aus_en"
+		read aus
+	fi
+done
+while [[ $language = ru && $aus != y && $aus != n ]]; do
+	if [[ $aus = $clr ]]; then
+		aus=""
+		clear
+		echo "$confirm_install"
+		echo "$uinstallcon_ru"
+		echo "$aus_ru"
+		read aus
+	fi
+	if [[ $aus != $clr && $aus != y && $aus != n ]]; then
+		aus=""
+		clear
+		echo "$oops_ru"
+		echo "$confirm_install"
+		echo "$uinstallcon_ru"
+		echo "$aus_ru"
+		read aus
+	fi
+done
+if [[ $aus = y && $language = en ]]; then
+	echo "$tlauncher_uinstall"
+	echo "$uinstall_en"
+	cd ~/
+	rm -rfv .tlauncher
+	rm -rfv .minecraft
+	cd "$desktop"
+	sudo rm -fv TLauncher.desktop
+	cd ~/.local/share/applications
+	sudo rm -fv TLauncher.desktop
+	cd $pwdir
+	echo "$uinstall_comp_en"
+	sleep 2
+	clear
+	echo "$tlauncher_icon_uc"
+fi
+if [[ $aus = y && $language = ru ]]; then
+	echo "$tlauncher_uinstall"
+	echo "$uinstall_ru"
+	cd ~/
+	rm -rfv .tlauncher
+	rm -rfv .minecraft
+	cd "$desktop"
+	sudo rm -fv TLauncher.desktop
+	cd ~/.local/share/applications
+	sudo rm -fv TLauncher.desktop
+	cd $pwdir
+	echo "$uinstall_comp_ru"
+	sleep 2
+	clear
+	echo "$tlauncher_icon_uc"
+fi
+if [[ $aus = n && $language = en ]]; then
+	cd $pwdir
+	echo "$uinstall_canc_en"
+	sleep 2
+	clear
+	echo "$exitlol"
+fi
+if [[ $aus = n && $language = ru ]]; then
+	cd $pwdir
+	echo "$uinstall_canc_ru"
+	sleep 2
+	clear
+	echo "$exitlol"
+fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/bin/bash
