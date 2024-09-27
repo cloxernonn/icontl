@@ -1,0 +1,32 @@
+#!/bin/bash
+#text&photo
+tlauncher_open="╭━╮
+┃┃┣━┳━┳━┳╮
+┃┃┃╋┃┻┫┃┃┃
+╰━┫╭┻━┻┻━╯
+╱╱╰╯
+"
+open_en="Launching the TLauncher"
+open_ru="Запуск Tlauncher-а"
+open_true_en="TLauncher is running"
+open_true_ru="TLauncher запущен"
+
+#code
+cd ~/.tlauncher/
+source vars
+if [[ $language = en ]]; then
+	echo "$tlauncher_open"
+	echo "$open_en"
+	cd ~/.tlauncher/
+	java -jar TLauncher.jar &
+	echo "$open_true_en"
+fi
+if [[ $language = ru ]]; then
+	echo "$tlauncher_open"
+	echo "$open_ru"
+	cd ~/.tlauncher/
+	java -jar TLauncher.jar &
+	echo "$open_true_ru"
+fi
+
+/bin/bash
