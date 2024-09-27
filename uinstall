@@ -105,7 +105,7 @@ if [[ $aus = y && $language = en ]]; then
 	sudo rm -fv TLauncher.desktop
 	cd ~/.local/share/applications
 	sudo rm -fv TLauncher.desktop
-	cd $pwdir
+	cd "$pwdir"
 	echo "$uinstall_comp_en"
 	sleep 2
 	clear
@@ -121,21 +121,21 @@ if [[ $aus = y && $language = ru ]]; then
 	sudo rm -fv TLauncher.desktop
 	cd ~/.local/share/applications
 	sudo rm -fv TLauncher.desktop
-	cd $pwdir
+	cd "$pwdir"
 	echo "$uinstall_comp_ru"
 	sleep 2
 	clear
 	echo "$tlauncher_icon_uc"
 fi
 if [[ $aus = n && $language = en ]]; then
-	cd $pwdir
+	cd "$pwdir"
 	echo "$uinstall_canc_en"
 	sleep 2
 	clear
 	echo "$exitlol"
 fi
 if [[ $aus = n && $language = ru ]]; then
-	cd $pwdir
+	cd "$pwdir"
 	echo "$uinstall_canc_ru"
 	sleep 2
 	clear
