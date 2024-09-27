@@ -12,6 +12,7 @@ open_true_en="TLauncher is running"
 open_true_ru="TLauncher запущен"
 
 #code
+clear
 cd ~/.tlauncher/
 source vars
 if [[ $language = en ]]; then
